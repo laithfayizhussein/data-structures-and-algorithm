@@ -6,10 +6,9 @@ Write a function named replaceZeros that, given a string, uses Regex to replace 
 ------------------------------------------------------------------------------------------------ */
 
 const replaceZeros = (string) => {
-  // Solution code here...
-   return string.replace(/0/gm, 'zero');
-  
+return string.replace(/0/gm, 'zero')
 }
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 Write a function named validatePin that uses a regular expression pattern to validate a PIN.
@@ -17,8 +16,7 @@ If the PIN is four numerical digits long, return true. Otherwise, return false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePin = (pin) => {
-  // Solution code here...
-  return /^\d{4}$/.test(pin);
+  return /^\d{4}$/.test(pin)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -28,7 +26,6 @@ If the word is between 5 and 10 characters long, return true. Otherwise, return 
 ------------------------------------------------------------------------------------------------ */
 
 const validateWord = (word) => {
-  // Solution code here...
   return /^\D{5,10}$/.test(word);
 };
 
@@ -39,7 +36,7 @@ If it does, return true. If not, return false.
 ------------------------------------------------------------------------------------------------ */
 
 const hasNumber = (string) => {
-  // Solution code here...
+return /^([a-zA-Z])/.test(string) ? /[0-9]/.test(string) : false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -55,8 +52,10 @@ Return either true or false.
 Note: if you ever need to validate an email using a regex in practice, the Internet has the actual regex you should use. It's many many lines long.
 ------------------------------------------------------------------------------------------------ */
 
+// https://www.w3resource.com/javascript/form/email-validation.php 
+
 const validateEmail = (email) => {
-  // Solution code here...
+  return (/^[a-zA-Z0-9]+(\.?[a-zA-Z0-9]+)?@[a-zA-Z0-9]+\.(net|com|org)$/.test(email))
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -76,9 +75,11 @@ Your function should include a single regular expression pattern that matches an
 Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
+// https://stackoverflow.com/questions/123559/how-to-validate-phone-numbers-using-regex 
+
+
 const validatePhoneNumber = (phoneNumber) => {
-  // Solution code here...
-};
+  return (/^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.)\s*(\d+))?$/.test(phoneNumber))}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
