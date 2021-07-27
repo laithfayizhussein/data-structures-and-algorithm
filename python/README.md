@@ -74,3 +74,13 @@ From the root of the `data-structures-and-algorithms/python` folder, execute the
 - **Run every possible test** - `pytest`
 - **Run filtered tests** - `pytest -k some_filter_text`
 - **Run in watch mode** - `ptw` or `pytest-watch`
+
+
+
+
+
+
+
+# the solution for array-binary-search
+
+![array-binary-search](array-binary-search/Untitled.jpg)
