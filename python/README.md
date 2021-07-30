@@ -81,12 +81,16 @@ From the root of the `data-structures-and-algorithms/python` folder, execute the
 
 
 
-# the solution for array-binary-search
-
-![array-binary-search](array-binary-search/Untitled.jpg)
-
-
 # the solution for array-reverse
 
 ![array-binary-search](array-reverse/revers.jpg)
+
+# the solution for array-insert-shift
+
+![array-binary-search](array-insert-shift/shift.jpg)
+
+
+# the solution for array-binary-search
+
+![array-binary-search](array-binary-search/Untitled.jpg)
 
