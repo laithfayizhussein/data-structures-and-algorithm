@@ -66,3 +66,50 @@ def test_return_linkList_values():
     assert actual==expected
 
 
+def test_before_head():
+    linkList = LinkedList()
+    linkList.append(2)
+    linkList.append(3)
+    linkList.append(4)
+    linkList.insert_after(2, 1)
+
+    actual = linkList.__str__()
+    expected='( 1 ) -> ( 2 ) -> ( 3 ) -> ( 4 ) -> null'
+    assert actual==expected
+
+def test_before_middle():
+    linkList = LinkedList()
+    linkList.append(1)
+    linkList.append(3)
+    linkList.append(4)
+    linkList.insert_before(3, 2)
+
+    actual = linkList.__str__()
+    expected='( 1 ) -> ( 2 ) -> ( 3 ) -> ( 4 ) -> null'
+    assert actual==expected
+
+
+def test_after_middle():
+    linkList = LinkedList()
+    linkList.append(1)
+    linkList.append(2)
+    linkList.append(4)
+    linkList.insert_after(2, 3)
+
+    actual = linkList.__str__()
+    expected='( 1 ) -> ( 2 ) -> ( 3 ) -> ( 4 ) -> null'
+    assert actual==expected
+
+def test_after_end():
+    linkList = LinkedList()
+    linkList.append(1)
+    linkList.append(2)
+    linkList.append(3)
+    linkList.insert_after(3, 4)
+
+    actual = linkList.__str__()
+    expected='( 1 ) -> ( 2 ) -> ( 3 ) -> ( 4 ) -> null'
+    assert actual==expected
+
+
+

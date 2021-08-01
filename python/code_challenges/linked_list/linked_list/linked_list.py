@@ -54,6 +54,40 @@ class LinkedList:
         except Exception as q:
           raise Exception(f" Error acourding :{q}")
 
+          "add new value befor the head node "
+    def insert_before(self, value, new_value):
+
+        current = self.head
+        if current.value==value:
+            self.insert(new_value)
+        else:
+         while current:
+
+             if current.next.value==value :
+                nextvalue=current.next
+                current.next=Node(new_value)
+                current.next.next=nextvalue
+                break
+             current=current.next
+
+
+    def insert_after(self, value, new_value):
+
+          new_node = Node(new_value)
+          current = self.head
+
+          if current is None:
+            self.insert_node(new_node)
+            return
+
+          while current is not None:
+            if current.value == value:
+                new_node.next = current.next
+                current.next = new_node
+            current = current.next
+            return
+
+
     def __str__(self):
 
         output = ""
