@@ -54,16 +54,68 @@ class LinkedList:
         except Exception as q:
           raise Exception(f" Error acourding :{q}")
 
+          "add new value befor the head node "
+    def insertBefore(self ,value, newVal):
+
+
+        current = self.head
+        if current.value==value:
+            self.insert(newVal)
+        else:
+          while current:
+
+             if current.next.value==value :
+                nextvalue=current.next
+                current.next=Node(newVal)
+                current.next.next=nextvalue
+                break
+             current=current.next
+
+
+    def insertAfter(self, value, newVal):
+
+
+        current = self.head
+        while current:
+            if current.value==value :
+                nextvalue=current.next
+                current.next=Node(newVal)
+                current.next.next=nextvalue
+                break
+            current=current.next
+
+
+    def kthFromEnd(self, k):
+
+        current = self.head
+        length = 0
+
+        if k < 0:
+            return 'not a positive number has been entered'
+
+        while current is not None:
+            current = current.next
+            length += 1
+
+        if k >length:
+            return 'Number is greater than the end of the list'
+
+        current =self.head
+        for i in range(0, length - k):
+            current =current.next
+        return current.value
+
+
     def __str__(self):
 
         output = ""
-        current = self.head
+        current =self.head
         while current:
-            value = current.value
+            value =current.value
             if current.next is None:
-                output += f"( {value} ) -> null"
+                output +=f"( {value} ) -> null"
                 break
-            output = output + f"( {value} ) -> "
+            output =output + f"( {value} ) -> "
             current=current.next
         return output
 
