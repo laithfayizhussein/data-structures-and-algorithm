@@ -55,49 +55,67 @@ class LinkedList:
           raise Exception(f" Error acourding :{q}")
 
           "add new value befor the head node "
-    def insert_before(self, value, new_value):
+    def insertBefore(self ,value, newVal):
+
 
         current = self.head
         if current.value==value:
-            self.insert(new_value)
+            self.insert(newVal)
         else:
-         while current:
+          while current:
 
              if current.next.value==value :
                 nextvalue=current.next
-                current.next=Node(new_value)
+                current.next=Node(newVal)
                 current.next.next=nextvalue
                 break
              current=current.next
 
 
-    def insert_after(self, value, new_value):
+    def insertAfter(self, value, newVal):
 
-          new_node = Node(new_value)
-          current = self.head
 
-          if current is None:
-            self.insert_node(new_node)
-            return
+        current = self.head
+        while current:
+            if current.value==value :
+                nextvalue=current.next
+                current.next=Node(newVal)
+                current.next.next=nextvalue
+                break
+            current=current.next
 
-          while current is not None:
-            if current.value == value:
-                new_node.next = current.next
-                current.next = new_node
+
+    def kthFromEnd(self, k):
+
+        current = self.head
+        length = 0
+
+        if k < 0:
+            return 'not a positive number has been entered'
+
+        while current is not None:
             current = current.next
-            return
+            length += 1
+
+        if k >length:
+            return 'Number is greater than the end of the list'
+
+        current =self.head
+        for i in range(0, length - k):
+            current =current.next
+        return current.value
 
 
     def __str__(self):
 
         output = ""
-        current = self.head
+        current =self.head
         while current:
-            value = current.value
+            value =current.value
             if current.next is None:
-                output += f"( {value} ) -> null"
+                output +=f"( {value} ) -> null"
                 break
-            output = output + f"( {value} ) -> "
+            output =output + f"( {value} ) -> "
             current=current.next
         return output
 

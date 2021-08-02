@@ -1,6 +1,6 @@
 
 from linked_list import __version__
-from linked_list.linked_list import LinkedList
+from linked_list.linked_list import LinkedList , Node
 
 def test_version():
     assert __version__ == '0.1.0'
@@ -71,8 +71,7 @@ def test_before_head():
     linkList.append(2)
     linkList.append(3)
     linkList.append(4)
-    linkList.insert_after(2, 1)
-
+    linkList.insertAfter(2, 1)
     actual = linkList.__str__()
     expected='( 1 ) -> ( 2 ) -> ( 3 ) -> ( 4 ) -> null'
     assert actual==expected
@@ -82,7 +81,7 @@ def test_before_middle():
     linkList.append(1)
     linkList.append(3)
     linkList.append(4)
-    linkList.insert_before(3, 2)
+    linkList.insertBefore(3, 2)
 
     actual = linkList.__str__()
     expected='( 1 ) -> ( 2 ) -> ( 3 ) -> ( 4 ) -> null'
@@ -94,7 +93,7 @@ def test_after_middle():
     linkList.append(1)
     linkList.append(2)
     linkList.append(4)
-    linkList.insert_after(2, 3)
+    linkList.insertAfter(2, 3)
 
     actual = linkList.__str__()
     expected='( 1 ) -> ( 2 ) -> ( 3 ) -> ( 4 ) -> null'
@@ -105,11 +104,49 @@ def test_after_end():
     linkList.append(1)
     linkList.append(2)
     linkList.append(3)
-    linkList.insert_after(3, 4)
-
+    linkList.insertAfter(3, 4)
     actual = linkList.__str__()
     expected='( 1 ) -> ( 2 ) -> ( 3 ) -> ( 4 ) -> null'
     assert actual==expected
 
+# globals for the tests:
+link = LinkedList()
+link.insert(6)
+link.append(9)
 
+# k in the middle some where
+def test_nth():
+    link.kthFromEnd(3)
+    actual = 0
+    expected = 0
+    assert actual == expected
 
+# k is greater than the length of the linked list
+def test_greater_nth():
+    link.kthFromEnd(9)
+    actual = 'Number is greater than the end of the list'
+    expected = 'Number is greater than the end of the list'
+    assert actual == expected
+
+# Where k and the length of the list are the same
+def test_same_nth():
+    link.kthFromEnd(3)
+    actual = 5
+    expected = 5
+    assert actual == expected
+
+# Where k is not a positive integer
+def test_negative_nth():
+    link.kthFromEnd(-3)
+    actual = 'Negative number has been entered'
+    expected = 'Negative number has been entered'
+    assert actual == expected
+
+# Where the linked list is of a size 1
+def test_one_nth():
+    new_ll = LinkedList()
+    new_ll.insert(1)
+    new_ll.kthFromEnd(1)
+    actual = 2
+    expected = 2
+    assert actual == expected
