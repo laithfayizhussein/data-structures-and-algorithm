@@ -1,3 +1,5 @@
+
+
 class Node:
     def __init__(self, value):
 
@@ -77,4 +79,15 @@ class Animalshelter:
 
 
 if __name__ == "__main__":
- pass
+    wolf = Dog('wolf')
+    riex=Dog('riex')
+    lolo = Cat('lolo')
+    sinp=Cat('sinp')
+    lion=Animal('lion','snake')
+    ash=Animalshelter()
+    ash.enqueue(wolf)
+    ash.enqueue(riex)
+    ash.enqueue(lolo)
+    ash.enqueue(sinp)
+    print(ash.enqueue(lion))
+    print(ash.dequeue('cat'))
