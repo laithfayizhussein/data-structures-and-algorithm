@@ -6,6 +6,7 @@
 
 # the solution for lkthFromEnd
 
+![ll.kthFromEnd](kkk.jpg)
 
 
 
