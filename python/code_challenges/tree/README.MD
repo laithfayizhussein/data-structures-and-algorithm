@@ -8,3 +8,5 @@ dealing with recursive and add Node in the correct place to keep tree balanced
 create Node class create Binary Tree create Binary Search Tree
 
 # white-board
+
+![](tree.jpg)

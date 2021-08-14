@@ -4,45 +4,98 @@ class Node:
         self.value = value
         self.left = None
         self.right = None
-  # i will use the queue it self without import just for practice
-class Queue:
-    def __init__(self):
-        self.front = None
-        self.rear = None
-
-    def enqueue(self,data):
-        node =Node(data)
-
-        if self.rear:
-            self.rear.next = node
-            self.rear = node
-        else:
-            self.front = node
-            self.rear = node
-
-    def dequeue(self):
-        temp = self.front
-        if self.is_empty():
-            raise AttributeError ('Queue is empty')
-
-        else:
-            self.front = self.front.next
-            temp.next= None
-        if self.front ==None:
-            self.rear = None
-        return temp.value
-
-
 
 class BinaryTree:
-
     def __init__(self):
         self.root = None
+    def preOrder(self):
 
+        output =" "
+        def traverse(node):
+            output.append(node.value)
 
+            if node.left:
+                traverse(node.left)
 
+            if node.right:
+                traverse(node.right)
 
+        traverse(self.root)
+        return output
 
+    def in_order(self):
+        output = " "
+        def traverse(node):
 
+            if node.left:
+                traverse(node.left)
 
+            output.append(node.value)
 
+            if node.right:
+                traverse(node.right)
+
+        traverse(self.root)
+        return output
+
+    def postOrder(self):
+        output =" "
+
+        def traverse(node):
+            if node.left:
+                traverse(node.left)
+            if node.right:
+                traverse(node.right)
+
+            output.append(node.value)
+        traverse(self.root)
+        return output
+
+class BinarySearchTree(BinaryTree):
+    def add(self,value):
+        if not self.root:
+            self.root = Node(value)
+
+        else:
+            def traverse(node):
+                # lift for min num
+                if value < node.value:
+                    if not node.left:
+                        node.left = Node(value)
+                        return
+                    else:
+                        traverse(node.left)
+
+                # right for max num
+                else:
+                    if not node.right:
+                        node.right = Node(value)
+                        return
+                    else:
+                        traverse(node.right)
+            traverse(self.root)
+    def empty_tree(self,value):
+
+        # if there is not root // empty tree
+        if not self.root:
+            return False
+        else:
+            def traverse(node):
+                # check the root value
+                if value == node.value:
+                    return True
+                # lift for min num
+                if value < node.value:
+                    if node.left:
+                        return traverse(node.left)
+                    else:
+                        return False
+                # right for max num
+                else:
+                    if node.right:
+                        return traverse(node.right)
+                    else:
+                        return False
+            return traverse(self.root)
+if __name__ == "__main__":
+   pass
