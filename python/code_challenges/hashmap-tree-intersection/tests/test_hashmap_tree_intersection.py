@@ -1,13 +1,10 @@
 from hashmap_tree_intersection import __version__
 
-
 def test_version():
     assert __version__ == '0.1.0'
 
-
 import pytest
 from hashmap_tree_intersection.hashmap_tree_intersection import *
-
 
 def test_happy_path(prepared_f_tree,prepared_s_tree):
     actual=intersection(prepared_f_tree,prepared_s_tree)
@@ -15,13 +12,11 @@ def test_happy_path(prepared_f_tree,prepared_s_tree):
     assert actual==expected
 
 
-
 def test_edge_case():
     f_tree=BinaryTree()
     s_tree=BinaryTree()
     actual=intersection(f_tree,s_tree)
     expected='theres emptry tree'
-
     assert actual==expected
 
 
