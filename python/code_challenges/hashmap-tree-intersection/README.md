@@ -1,8 +1,9 @@
 ## Challenge Summary
 Find all values found to be in 2 binary trees
 
-Whiteboard Process
-![]()
+## Whiteboard Process
+
+![](hash.jpg)
 
 ## Approach & Efficiency
 - Ceate function take 2 tree as input

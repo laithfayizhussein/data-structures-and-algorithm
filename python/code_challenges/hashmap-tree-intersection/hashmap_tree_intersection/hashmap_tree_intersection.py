@@ -1,11 +1,8 @@
 class Node:
-    def __init__(self, data ,value):
-        self.value = value
+    def __init__(self, data ,):
         self.data = data
-        self.next = None
-        self.left = None
-        self.right = None
-        
+        self.next= None
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -72,6 +69,12 @@ class Hash_table:
                     current=current.next
         return None
 
+class Node2:
+    def __init__(self,value):
+        self.value = value
+        self.left = None
+        self.right = None
+
 class BinaryTree:
     def __init__(self):
         self.root = None
@@ -79,7 +82,6 @@ class BinaryTree:
 def intersection(f_tree,s_tree):
     arr=[]
     hashtable=Hash_table(1024)
-
     if f_tree.root==None or s_tree.root==None:
         return 'theres emptry tree'
     def _walk(node):
@@ -95,37 +97,36 @@ def intersection(f_tree,s_tree):
             _walk(node.right)
     _walk(f_tree.root)
     _walk(s_tree.root)
-
     return arr
 
 
 
 if __name__ == "__main__":
     f_tree=BinaryTree()
-    f_tree.root=Node(150)
-    f_tree.root.left=Node(100)
-    f_tree.root.right=Node(250)
-    f_tree.root.left.left=Node(75)
-    f_tree.root.left.right=Node(160)
-    f_tree.root.right.left=Node(200)
-    f_tree.root.right.right=Node(350)
-    f_tree.root.left.right.left=Node(125)
-    f_tree.root.left.right.right=Node(175)
-    f_tree.root.right.right.left=Node(300)
-    f_tree.root.right.right.right=Node(500)
+    f_tree.root=Node2(150)
+    f_tree.root.left=Node2(100)
+    f_tree.root.right=Node2(250)
+    f_tree.root.left.left=Node2(75)
+    f_tree.root.left.right=Node2(160)
+    f_tree.root.right.left=Node2(200)
+    f_tree.root.right.right=Node2(350)
+    f_tree.root.left.right.left=Node2(125)
+    f_tree.root.left.right.right=Node2(175)
+    f_tree.root.right.right.left=Node2(300)
+    f_tree.root.right.right.right=Node2(500)
 
     s_tree=BinaryTree()
-    s_tree.root=Node(42)
-    s_tree.root.left=Node(100)
-    s_tree.root.right=Node(600)
-    s_tree.root.left.left=Node(15)
-    s_tree.root.left.right=Node(160)
-    s_tree.root.right.left=Node(200)
-    s_tree.root.right.right=Node(350)
-    s_tree.root.left.right.left=Node(125)
-    s_tree.root.left.right.right=Node(175)
-    s_tree.root.right.right.left=Node(4)
-    s_tree.root.right.right.right=Node(500)
+    s_tree.root=Node2(42)
+    s_tree.root.left=Node2(100)
+    s_tree.root.right=Node2(600)
+    s_tree.root.left.left=Node2(15)
+    s_tree.root.left.right=Node2(160)
+    s_tree.root.right.left=Node2(200)
+    s_tree.root.right.right=Node2(350)
+    s_tree.root.left.right.left=Node2(125)
+    s_tree.root.left.right.right=Node2(175)
+    s_tree.root.right.right.left=Node2(4)
+    s_tree.root.right.right.right=Node2(500)
 
     print(intersection(f_tree,s_tree))
 
